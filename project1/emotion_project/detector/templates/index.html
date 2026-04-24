@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <span class="page-label">Live Feed</span>
+        <h1>Live Emotion Detection</h1>
+        <img src="{% url 'video_feed' %}" alt="Live video feed" width="700">
+        <nav class="nav-links">
+            <a href="/image/">Image Upload</a>
+            <a href="/text/">Text Emotion</a>
+        </nav>
+    </div>
+</body>
+</html>

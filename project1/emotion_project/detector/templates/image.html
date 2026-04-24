@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Emotion</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <span class="page-label">Image Analysis</span>
+        <h1>Image Emotion</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" accept="image/*">
+            <button type="submit">Upload</button>
+        </form>
+        {% if emotion %}
+            <div class="result">Emotion: {{ emotion }}</div>
+        {% endif %}
+        <nav class="nav-links">
+            <a href="/">← Live Feed</a>
+            <a href="/text/">Text Emotion</a>
+        </nav>
+    </div>
+</body>
+</html>

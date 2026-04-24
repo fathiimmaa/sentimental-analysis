@@ -1,0 +1,330 @@
+/* ============================================
+   Emotion Detection — External Stylesheet
+   Aesthetic: Dark sci-fi / neural interface
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;800&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --bg:         #080c14;
+  --surface:    #0d1526;
+  --border:     #1a2d50;
+  --accent:     #00d4ff;
+  --accent-dim: #0077aa;
+  --glow:       0 0 20px rgba(0, 212, 255, 0.25);
+  --text:       #c8dff5;
+  --text-muted: #4a6a8a;
+  --danger:     #ff4f6e;
+  --success:    #00ffb2;
+  --radius:     12px;
+  --font-ui:    'Syne', sans-serif;
+  --font-mono:  'Space Mono', monospace;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 212, 255, 0.08) 0%, transparent 60%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(26, 45, 80, 0.25) 39px,
+      rgba(26, 45, 80, 0.25) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(26, 45, 80, 0.25) 39px,
+      rgba(26, 45, 80, 0.25) 40px
+    );
+  color: var(--text);
+  font-family: var(--font-ui);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px 80px;
+}
+
+/* ── Page Wrapper ── */
+.page-wrapper {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Headings ── */
+h1 {
+  font-family: var(--font-ui);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1.1;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 60%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+h2 {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--success);
+  background: rgba(0, 255, 178, 0.07);
+  border: 1px solid rgba(0, 255, 178, 0.2);
+  border-radius: var(--radius);
+  padding: 14px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2::before {
+  content: '▶';
+  font-size: 0.65rem;
+  color: var(--success);
+  opacity: 0.7;
+}
+
+/* ── Navigation / Links ── */
+nav, .nav-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 9px 20px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 6px;
+  background: rgba(0, 212, 255, 0.05);
+  transition: background 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s;
+}
+
+a:hover {
+  background: rgba(0, 212, 255, 0.12);
+  box-shadow: var(--glow);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ── Video / Image Feed ── */
+img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.1), 0 8px 40px rgba(0, 0, 0, 0.6);
+  background: var(--surface);
+}
+
+/* ── Card / Form Surface ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Form Elements ── */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+}
+
+textarea {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  min-height: 140px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  line-height: 1.6;
+}
+
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+textarea:focus {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+/* File input */
+input[type="file"] {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+input[type="file"]:hover {
+  border-color: var(--accent-dim);
+  color: var(--text);
+}
+
+input[type="file"]::file-selector-button {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid var(--accent-dim);
+  border-radius: 5px;
+  padding: 6px 14px;
+  cursor: pointer;
+  margin-right: 14px;
+  transition: background 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: rgba(0, 212, 255, 0.18);
+}
+
+/* ── Button ── */
+button[type="submit"] {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  cursor: pointer;
+  align-self: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: #22e8ff;
+  box-shadow: 0 0 28px rgba(0, 212, 255, 0.45);
+}
+
+button[type="submit"]:hover::before { opacity: 1; }
+button[type="submit"]:active { transform: scale(0.97); }
+
+/* ── Result Box ── */
+.result {
+  margin-top: 8px;
+  padding: 16px 22px;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  background: rgba(0, 255, 178, 0.07);
+  border: 1px solid rgba(0, 255, 178, 0.2);
+  color: var(--success);
+  animation: fadeUp 0.4s ease both;
+}
+
+/* ── Page Label ── */
+.page-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  body { padding: 28px 14px 60px; }
+  form { padding: 20px; }
+  button[type="submit"] { align-self: stretch; text-align: center; }
+}

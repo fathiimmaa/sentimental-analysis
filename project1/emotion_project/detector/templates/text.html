@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Emotion</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <span class="page-label">Text Analysis</span>
+        <h1>Text Emotion</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="text" placeholder="Type or paste text here…"></textarea>
+            <button type="submit">Check Emotion</button>
+        </form>
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+        <nav class="nav-links">
+            <a href="/">← Live Feed</a>
+            <a href="/image/">Image Upload</a>
+        </nav>
+    </div>
+</body>
+</html>
